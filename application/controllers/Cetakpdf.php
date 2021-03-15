@@ -10,6 +10,7 @@
 // use setasign\FpdF\FpdF;
 use setasign\Fpdi\Fpdi;
 use setasign\Fpdi\PdfParser\StreamReader;
+include_once APPPATH . '\third_party\autoload.php';
 // define('FPDF_FONTPATH','/third_party/font');
 
 class Cetakpdf extends CI_Controller
