@@ -19,7 +19,7 @@ class Cetakpdf extends CI_Controller
     {
         parent::__construct();
         $this->load->library('Fpdf');
-        $this->load->library('Fpdi');
+        // $this->load->library('Fpdi');
         $this->load->model("database_model", "model");
     }
 
