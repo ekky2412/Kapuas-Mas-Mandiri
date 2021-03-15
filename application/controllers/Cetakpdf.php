@@ -1,11 +1,11 @@
 <?php
 // defined('BASEPATH') OR exit('No direct script access allowed');
-stream_context_set_default([
-    'ssl' => [
-        'verify_peer' => false,
-        'verify_peer_name' => false
-    ]
-]);
+// stream_context_set_default([
+//     'ssl' => [
+//         'verify_peer' => false,
+//         'verify_peer_name' => false
+//     ]
+// ]);
 
 use setasign\Fpdi\Fpdi;
 use setasign\Fpdi\PdfParser\StreamReader;
