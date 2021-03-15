@@ -19,12 +19,13 @@ class Cetakpdf extends CI_Controller
     {
         parent::__construct();
         // $this->load->library('fpdf');
-        // $this->load->library('fpdi');
+        $this->load->library('Fpdi');
         $this->load->model("database_model", "model");
     }
 
     public function cetakBA($total, $orderpengirim, $nicknamePengirim, $bulan, $tahun)
     {
+        error_reporting(0);
         $nomorOB = array("nomorOB" => $total . "/" . $orderpengirim . "/" . $nicknamePengirim . "/" . $bulan . "/" . $tahun);
         $data['ob'] = $this->model->getDataOB($nomorOB);
         $data['container'] = $this->model->getData('rinciancontainer', $nomorOB);
