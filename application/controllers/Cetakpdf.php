@@ -7,10 +7,10 @@
 //     ]
 // ]);
 
-use setasign\FpdF\FpdF;
+// use setasign\FpdF\FpdF;
 use setasign\Fpdi\Fpdi;
 use setasign\Fpdi\PdfParser\StreamReader;
-define('FPDF_FONTPATH','/third_party/font');
+// define('FPDF_FONTPATH','/third_party/font');
 
 class Cetakpdf extends CI_Controller
 {
@@ -18,8 +18,8 @@ class Cetakpdf extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->library('fpdf');
-        $this->load->library('fpdi');
+        // $this->load->library('fpdf');
+        // $this->load->library('fpdi');
         $this->load->model("database_model", "model");
     }
 
