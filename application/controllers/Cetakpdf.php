@@ -11,7 +11,6 @@ use setasign\Fpdi\FpdF;
 use setasign\Fpdi\Fpdi;
 use setasign\Fpdi\PdfParser\StreamReader;
 define('FPDF_FONTPATH','/third_party/font');
-require('fpdf.php');
 
 class Cetakpdf extends CI_Controller
 {
