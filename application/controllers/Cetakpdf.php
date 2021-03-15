@@ -8,7 +8,7 @@
 // ]);
 
 // use setasign\FpdF\FpdF;
-use setasign\Fpdi\Fpdi;
+use setasign\Fpdi\src\Fpdi;
 use setasign\Fpdi\PdfParser\StreamReader;
 // define('FPDF_FONTPATH','/third_party/font');
 
