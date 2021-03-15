@@ -1,5 +1,5 @@
 <div class="container mt-3">
-    <div class="justify-content-md-center col-6 bg-dark text-light p-3">
+    <div class="justify-content-md-center col-12 bg-dark text-light p-3">
     <h1>Login</h1>
     <form action="<?=base_url()?>" method="post">
         <div class="form-group">

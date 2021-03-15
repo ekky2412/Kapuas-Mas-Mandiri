@@ -28,6 +28,10 @@ class Admin extends CI_Controller
     }
 
     public function orderbill(){
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
         $data['judul'] = "Order Bill";
         $db = $this->model->getDataOB();
         $data['orderbill'] = $db;
@@ -39,6 +43,10 @@ class Admin extends CI_Controller
     }
 
     public function detailOB($nomorOB,$nomor2,$kodePengirim,$bulan,$tahun){
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
 
         $nomorOB = array("nomorOB" => $nomorOB."/".$nomor2."/".$kodePengirim."/".$bulan."/".$tahun);
         
@@ -59,6 +67,11 @@ class Admin extends CI_Controller
     }
 
     public function tambahOrderBill(){
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
+
         $data['judul'] = "Tambah Order Bill";
 
         $data['pengirim'] = $this->model->getData('pengirim');
@@ -71,6 +84,10 @@ class Admin extends CI_Controller
     }
 
     public function editOB($nomorOB,$nomor2,$kodePengirim,$bulan,$tahun){
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
 
         $nomorOB = array("nomorOB" => $nomorOB."/".$nomor2."/".$kodePengirim."/".$bulan."/".$tahun);
 
@@ -90,6 +107,11 @@ class Admin extends CI_Controller
 
     public function penerima()
     {
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
+
         $data['judul'] = "List Penerima";
         $db = $this->model->getData('penerima');
         $data['penerima'] = $db;
@@ -102,6 +124,11 @@ class Admin extends CI_Controller
 
     public function pengirim()
     {
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
+
         $data['judul'] = "List Pengirim";
         $db = $this->model->getData('pengirim');
         $data['pengirim'] = $db;
@@ -113,6 +140,11 @@ class Admin extends CI_Controller
     }
 
     public function tambah($tabel){
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
+
         if($tabel == 'penerima'){
             $data = array(
                 'namaPenerima' => strtoupper($this->input->post('nama')),
@@ -208,6 +240,11 @@ class Admin extends CI_Controller
     }
 
     public function edit($tabel){
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
+
         if($tabel == "pengirim"){
             $id = array(
                 'idPengirim' => $this->input->post('idPengirim')
@@ -328,6 +365,11 @@ class Admin extends CI_Controller
     }
 
     public function delete($tabel,$id = null){
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
+
         if($tabel == "pengirim"){
             $id = array(
                 'idPengirim' => $id
@@ -383,7 +425,7 @@ class Admin extends CI_Controller
         redirect(base_url());
     }
 
-    public function jam()
+    private function jam()
     {
         date_default_timezone_set('Asia/Jakarta');
         $Hour = date('G');
