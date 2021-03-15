@@ -3,6 +3,10 @@ class Admin extends CI_Controller
 {
     public function __construct()
     {
+        $session = $this->session->userdata('nama');
+            if(empty($session)){
+                redirect(base_url());
+        }
         parent::__construct();
         $this->load->model('database_model', 'model');
     }
