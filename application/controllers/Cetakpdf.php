@@ -7,6 +7,7 @@
 //     ]
 // ]);
 
+use setasign\Fpdi\FpdF;
 use setasign\Fpdi\Fpdi;
 use setasign\Fpdi\PdfParser\StreamReader;
 
