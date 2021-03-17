@@ -28,7 +28,7 @@
                         ?>
                             <a class="btn btn-primary" href="<?= base_url() ?>admin/detailOB/<?= $p['nomorOB'] ?>"> Detail </a>
                             <a class="btn btn-success" target="_blank" href="<?= base_url('cetakpdf/cetakBA/').$p['nomorOB'] ?>"> Cetak </a>
-                            <form action="<?= base_url('admin/hapus/OB')?>">
+                            <form action="<?= base_url('admin/delete/OB')?>" method="post">
                             <input type="hidden" name="nomorOB" value="<?= $p['nomorOB'] ?>">
                             <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah anda ingin menghapus data ini?')">Hapus</button>
                         </form>
