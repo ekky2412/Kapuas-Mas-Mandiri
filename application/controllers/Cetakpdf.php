@@ -59,9 +59,9 @@ class Cetakpdf extends CI_Controller
         $pdf->SetXY(53, 82);
         $pdf->Cell(20, 17, $data['ob']['namaKapal'] . " V." . $data['ob']['voy']);
         $pdf->SetXY(53, 88);
-        $pdf->Cell(20, 17, $data['ob']['tanggalTiba']);
+        $pdf->Cell(20, 17, date('d-M-Y', strtotime($data['ob']['tanggalTiba'])) );
         $pdf->SetXY(53, 94);
-        $pdf->Cell(20, 17, $data['ob']['tanggalSandar']);
+        $pdf->Cell(20, 17, date('d-M-Y', strtotime($data['ob']['tanggalSandar'])) );
         $pdf->SetXY(53, 100);
         $pdf->Cell(20, 17, $data['ob']['noBL']);
 

@@ -28,6 +28,10 @@
                         ?>
                             <a class="btn btn-primary" href="<?= base_url() ?>admin/detailOB/<?= $p['nomorOB'] ?>"> Detail </a>
                             <a class="btn btn-success" target="_blank" href="<?= base_url('cetakpdf/cetakBA/').$p['nomorOB'] ?>"> Cetak </a>
+                            <form action="<?= base_url('admin/hapus/OB')?>">
+                            <input type="hidden" name="nomorOB" value="<?= $p['nomorOB'] ?>">
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah anda ingin menghapus data ini?')">Hapus</button>
+                        </form>
                         <?php
                             // echo "<a class='btn btn-success my-2 ml-2' href=";
                             // echo base_url("admin/orderbill/$p[nomorOB]");

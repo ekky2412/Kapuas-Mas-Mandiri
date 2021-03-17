@@ -390,7 +390,14 @@ class Admin extends CI_Controller
             redirect(base_url('admin/penerima'));
         }
         else if($tabel == "OB"){
+            $id = array(
+                'nomorOB' => $this->input->post('nomorOB')
+            );
 
+            $this->model->deleteData('orderbill',$id);
+
+            $this->session->set_flashdata('pesan', 'Orderbill berhasil dihapus!');
+            redirect(base_url('admin/orderbill'));
         }
         else if($tabel == "container"){
             $id = array(
