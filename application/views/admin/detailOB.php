@@ -7,7 +7,7 @@
                 <?php
                 if ($orderbill['pelunasan'] == '' || $orderbill['pelunasan'] == 'BELUM LUNAS') {
                 ?>
-                    <button data-toggle="modal" data-target="#pelunasanModal" id="pelunasanModal" class="btn btn-warning">BELUM LUNAS</button>
+                    <button data-toggle="modal" data-target="#pelunasanModal" id="pelunasanModal" class="btn btn-danger">BELUM LUNAS</button>
                 <?php
                 } else if ($orderbill['pelunasan'] == 'LUNAS') {
                 ?>
@@ -16,7 +16,7 @@
                 }
                 ?>
             </div>
-<!--
+
             <div class="modal fade" id="pelunasanModal" tabindex="-1" role="dialog" aria-labelledby="pelunasanModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div> 
--->
+
 
 
             <hr>
@@ -358,11 +358,11 @@
                                                                 <?php
 
                                                                 if (!empty($p['cash1'])) {
-                                                                    echo $p['cash1'];
+                                                                    echo number_format( $p['cash1'],0,',','.');
                                                                 } else if (!empty($p['cash2'])) {
-                                                                    echo $p['cash2'];
+                                                                    echo number_format($p['cash2'],0,',','.');
                                                                 } else if (!empty($p['cash3'])) {
-                                                                    echo $p['cash3'];
+                                                                    echo number_format($p['cash3'],0,',','.');
                                                                 }
 
                                                                 ?>">

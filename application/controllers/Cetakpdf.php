@@ -259,12 +259,12 @@ class Cetakpdf extends CI_Controller
         $pdf->SetXY(55, 230);
         $pdf->Write(2, $total . "/" . $orderpengirim . "/" . $nicknamePengirim . "/" ."KMM/". $bulan . "/" . $tahun);
         $pdf->SetXY(55, 235);
-        $pdf->Write(2, $data['orderbill']['tanggalDebet']);
+        $pdf->Write(2, $data['ob']['tanggalDebet']);
         $pdf->SetXY(55, 240);
-        $pdf->Write(2, $data['orderbill']['jumlahDebet']);
+        $pdf->Write(2, $data['ob']['jumlahDebet']);
 
         $pdf->SetXY(160, 240);
-        $pdf->Write(2, number_format($data['orderbill']['jumlahDebet'] - $jumlah,0,',','.'));
+        $pdf->Write(2, number_format($data['ob']['jumlahDebet'] - $jumlah,0,',','.'));
         $pdf->Output();
     }
 
