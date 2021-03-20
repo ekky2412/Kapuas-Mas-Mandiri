@@ -345,7 +345,7 @@
                                                         <input type="hidden" name="id" value="<?= $p['id'] ?>">
                                                         <div class="form-group">
                                                             <label for="tanggal">Tanggal</label>
-                                                            <input class="form-control" type="date" name="tanggal" id="tanggal" value="<?= $p['tanggal'] ?>">
+                                                            <input class="form-control" type="date" name="tanggal" id="tanggal" value="<?= date('d m Y', strtotime($p['tanggal']))  ?>">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="keterangan">Keterangan </label>
