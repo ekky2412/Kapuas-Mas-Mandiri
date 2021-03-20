@@ -27,7 +27,10 @@ class Cetakpdf extends CI_Controller
 
     public function cetakBA($total, $orderpengirim, $nicknamePengirim, $bulan, $tahun)
     {
-        error_reporting(0);
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
         $nomorOB = array("nomorOB" => $total . "/" . $orderpengirim . "/" . $nicknamePengirim . "/" . $bulan . "/" . $tahun);
         $data['ob'] = $this->model->getDataOB($nomorOB);
         $data['container'] = $this->model->getData('rinciancontainer', $nomorOB);
@@ -126,6 +129,10 @@ class Cetakpdf extends CI_Controller
 
     public function cetakPembayaran($total, $orderpengirim, $nicknamePengirim, $bulan, $tahun)
     {
+        $session = $this->session->userdata('nama');
+        if(empty($session)){
+                redirect(base_url());
+        }
         $nomorOB = array('nomorOB' => $total . "/" . $orderpengirim . "/" . $nicknamePengirim . "/" . $bulan . "/" . $tahun);
         $data['ob'] = $this->model->getDataOB($nomorOB);
         $data['container'] = $this->model->getData('rinciancontainer', $nomorOB);
@@ -219,15 +226,15 @@ class Cetakpdf extends CI_Controller
 
             if ($p['cash1'] != null) {
                 $pdf->SetXY(130, $y);
-                $pdf->Write(2, $p['cash1']);
+                $pdf->Write(2, number_format($p['cash1'],0,',','.'));
                 $cash1 = $cash1 + $p['cash1'];
             } else if ($p['cash2'] != null) {
                 $pdf->SetXY(162, $y);
-                $pdf->Write(2, $p['cash2']);
+                $pdf->Write(2, number_format($p['cash2'],0,',','.'));
                 $cash2 = $cash2 + $p['cash2'];
             } else if ($p['cash3'] != null) {
                 $pdf->SetXY(195, $y);
-                $pdf->Write(2, $p['cash3']);
+                $pdf->Write(2, number_format($p['cash3'],0,',','.'));
                 $cash3 = $cash3 + $p['cash3'];
             }
 
@@ -238,22 +245,26 @@ class Cetakpdf extends CI_Controller
 
         //Jumlah
         $pdf->SetXY(126, 215);
-        $pdf->Write(2, $cash1);
+        $pdf->Write(2, number_format($cash1,0,',','.'));
         $pdf->SetXY(162, 215);
-        $pdf->Write(2, $cash2);
+        $pdf->Write(2, number_format($cash2,0,',','.'));
         $pdf->SetXY(195, 215);
-        $pdf->Write(2, $cash3);
+        $pdf->Write(2, number_format($cash3,0,',','.'));
 
         $jumlah = $cash1 + $cash2 + $cash3;
         $pdf->SetXY(126, 225);
-        $pdf->Write(2, $jumlah);
+        $pdf->Write(2, number_format($jumlah,0,',','.'));
 
         //nomor debet hingga rugi laba
         $pdf->SetXY(55, 230);
         $pdf->Write(2, $total . "/" . $orderpengirim . "/" . $nicknamePengirim . "/" ."KMM/". $bulan . "/" . $tahun);
         $pdf->SetXY(55, 235);
-        // $pdf->Write(2, );
+        $pdf->Write(2, $data['orderbill']['tanggalDebet']);
+        $pdf->SetXY(55, 240);
+        $pdf->Write(2, $data['orderbill']['jumlahDebet']);
 
+        $pdf->SetXY(160, 240);
+        $pdf->Write(2, number_format($data['orderbill']['jumlahDebet'] - $jumlah,0,',','.'));
         $pdf->Output();
     }
 
