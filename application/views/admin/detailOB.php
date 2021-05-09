@@ -6,15 +6,16 @@
                 <a class="btn btn-warning" href="<?= base_url('admin/editOB/') . $orderbill['nomorOB'] ?>">Edit</a>
                 <?php
                 if ($orderbill['pelunasan'] == '' || $orderbill['pelunasan'] == 'BELUM LUNAS') {
-                
-                    $pelunasan = "BELUM LUNAS";
-
+                ?>
+                    <button data-toggle="modal" data-target="#pelunasanModal" class="btn btn-danger">BELUM LUNAS</button>
+                <?php
                 } else if ($orderbill['pelunasan'] == 'LUNAS') {
-                
-                    $pelunasan = "LUNAS";
+                ?>
+                    <button data-toggle="modal" data-target="#pelunasanModal" class="btn btn-success">LUNAS</button>
+                <?php
                 }
                 ?>
-        <button data-toggle="modal" data-target="#pelunasanModal" id="pelunasanModal" class="btn btn-danger"><?= $pelunasan ?></button>
+
         <div class="modal fade" id="pelunasanModal" tabindex="-1" role="dialog" aria-labelledby="pelunasanModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -44,7 +45,8 @@
                                         <input type="checkbox" name="lunas" value="LUNAS" <?php
                                             if($orderbill['pelunasan'] == 'LUNAS')
                                             echo "checked";
-                                        ?>>
+                                        ?>
+                                        >
                                     </div>
                                 </div>
                         </div>
