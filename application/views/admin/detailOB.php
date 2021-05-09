@@ -40,13 +40,14 @@
                                     <label for="jumlahDebet">Jumlah Debet </label>
                                     <input class="form-control" type="text" name="jumlahDebet" id="jumlahDebet" value="<?= $orderbill['jumlahDebet'] ?>">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-check">
                                     <div class="col-md-3">
-                                        <input type="checkbox" name="lunas" value="LUNAS" <?php
+                                        <input id="checkbox-pelunasan" class="form-check-input" type="checkbox" name="lunas" value="LUNAS" <?php
                                             if($orderbill['pelunasan'] == 'LUNAS')
                                             echo "checked";
                                         ?>
                                         >
+                                        <label class="form-check-label" for="checkbox-pelunasan">LUNAS</label>
                                     </div>
                                 </div>
                         </div>

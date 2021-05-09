@@ -320,7 +320,7 @@ class Admin extends CI_Controller
                 'tipeJumlah' => $this->input->post('tipeJumlah')
             );
 
-            echo "<pre>",var_dump($data),"</pre>";
+            // echo "<pre>",var_dump($data),"</pre>";
 
             $this->model->editData($id,'rinciancontainer',$data);
 
@@ -360,6 +360,23 @@ class Admin extends CI_Controller
 
             $this->model->editData($id,'rincianbiayaOB',$data);
             $this->session->set_flashdata('pesan', 'Data Pembayaran berhasil diedit!');
+            redirect(base_url('admin/detailOB/').$id['nomorOB']);
+        }
+        else if($tabel == "pelunasan"){
+
+            $id = array(
+                'nomorOB' => $this->input->post('nomorOB')
+            );
+
+            $data = array(
+                'noDebet' => $this->input->post('noDebet'),
+                'tanggalDebet' => $this->input->post('tanggalDebet'),
+                'jumlahDebet' => $this->input->post('jumlahDebet'),
+                'pelunasan' => $this->input->post('lunas')
+            );
+
+            $this->model->editData($id,'orderbill',$data);
+            $this->session->set_flashdata('pesan', 'Data Debet berhasil diedit!');
             redirect(base_url('admin/detailOB/').$id['nomorOB']);
         }
     }
